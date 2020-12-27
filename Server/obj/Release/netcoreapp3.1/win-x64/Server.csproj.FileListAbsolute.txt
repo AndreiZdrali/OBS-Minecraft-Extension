@@ -1,0 +1,15 @@
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.exe
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.deps.json
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.runtimeconfig.json
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.runtimeconfig.dev.json
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.dll
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Server.pdb
+D:\C#\RemoteControlTool\server\bin\Release\netcoreapp3.1\win-x64\Open.Nat.dll
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.csprojAssemblyReference.cache
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.AssemblyInfoInputs.cache
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.AssemblyInfo.cs
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.csproj.CoreCompileInputs.cache
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.csproj.CopyComplete
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.dll
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.pdb
+D:\C#\RemoteControlTool\server\obj\Release\netcoreapp3.1\win-x64\Server.genruntimeconfig.cache

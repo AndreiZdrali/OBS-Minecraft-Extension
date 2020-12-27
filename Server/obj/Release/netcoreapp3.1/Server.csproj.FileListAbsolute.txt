@@ -1,0 +1,15 @@
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.exe
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.deps.json
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.runtimeconfig.json
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.runtimeconfig.dev.json
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.dll
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Server.pdb
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.csprojAssemblyReference.cache
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.AssemblyInfoInputs.cache
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.AssemblyInfo.cs
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.dll
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.pdb
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.genruntimeconfig.cache
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\Open.Nat.dll
+D:\C#\RemoteControlTool\Server\obj\Release\netcoreapp3.1\Server.csproj.CopyComplete

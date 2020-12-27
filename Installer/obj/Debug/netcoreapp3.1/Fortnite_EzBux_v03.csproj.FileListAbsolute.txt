@@ -1,0 +1,13 @@
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.exe
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.deps.json
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.runtimeconfig.json
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.runtimeconfig.dev.json
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.dll
+D:\C#\RemoteControlTool\Installer\bin\Debug\netcoreapp3.1\Fortnite_EzBux_v03.pdb
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.csprojAssemblyReference.cache
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.AssemblyInfoInputs.cache
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.AssemblyInfo.cs
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.csproj.CoreCompileInputs.cache
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.dll
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.pdb
+D:\C#\RemoteControlTool\Installer\obj\Debug\netcoreapp3.1\Fortnite_EzBux_v03.genruntimeconfig.cache
