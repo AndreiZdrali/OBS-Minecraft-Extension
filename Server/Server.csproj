@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>SecureLane</Authors>
+    <Company>SecureLane</Company>
+    <Product>SecureServerShell</Product>
   </PropertyGroup>
 
   <ItemGroup>

@@ -16,6 +16,7 @@ namespace Client
         static int receiveBuffer = 8192;
         static int sendBuffer = 8192;
         static int receiveTimeout = 30000;
+        static int sendTimeout = 30000;
 
         static void Main(string[] args)
         {
@@ -108,6 +109,17 @@ namespace Client
                         else
                             Console.WriteLine($"Local receive timeout is {receiveTimeout}.\n");
                     }
+
+                    else if (commandArgs[0] == "localSendTimeout")
+                    {
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
+                        {
+                            Int32.TryParse(commandArgs[1], out receiveTimeout);
+                            Console.WriteLine($"Local receive timeout set to {sendTimeout}.\n");
+                        }
+                        else
+                            Console.WriteLine($"Local receive timeout is {sendTimeout}.\n");
+                    }
                     #endregion
 
                     else if (!String.IsNullOrWhiteSpace(message))
@@ -115,7 +127,8 @@ namespace Client
                         Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                         socket.ReceiveBufferSize = receiveBuffer;
                         socket.SendBufferSize = sendBuffer;
-                        socket.ReceiveTimeout = 30000;
+                        socket.ReceiveTimeout = receiveTimeout;
+                        socket.SendTimeout = sendTimeout;
 
                         socket.Connect(hostEndPoint);
 

@@ -24,6 +24,7 @@ namespace Server
         static Socket socket;
         static int receiveBuffer = 8192;
         static int sendBuffer = 8192;
+        static int receiveTimeout = 30000;
         static int sendTimeout = 30000;
 
         static void Main(string[] args)
@@ -51,6 +52,7 @@ namespace Server
                 Socket accepted = socket.Accept();
                 accepted.ReceiveBufferSize = receiveBuffer;
                 accepted.SendBufferSize = sendBuffer;
+                accepted.ReceiveTimeout = receiveTimeout;
                 accepted.SendTimeout = sendTimeout;
 
                 NetworkStream networkStream = new NetworkStream(accepted);
@@ -94,6 +96,18 @@ namespace Server
                         }
                         else
                             SendMessage(binaryWriter, $"Server send buffer size is {sendBuffer}.");
+                    }
+
+                    //remotereceivetimeout
+                    else if (commandArgs[0] == "remoteReceiveTimeout")
+                    {
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
+                        {
+                            Int32.TryParse(commandArgs[1], out receiveTimeout);
+                            SendMessage(binaryWriter, $"Server send timeout set to {receiveTimeout}.");
+                        }
+                        else
+                            SendMessage(binaryWriter, $"Server send timeout is {receiveTimeout}.");
                     }
 
                     //remotesendtimeout
