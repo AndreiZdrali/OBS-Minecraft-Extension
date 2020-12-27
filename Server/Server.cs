@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Server
 {
@@ -56,14 +57,17 @@ namespace Server
                 BinaryWriter binaryWriter = new BinaryWriter(networkStream);
                 BinaryReader binaryReader = new BinaryReader(networkStream);
 
-                byte[] buffer = new byte[receiveBuffer]; //aici dadea eroare
-                binaryReader.Read(buffer);
-                buffer = Utils.TrimBytes(buffer);
-                string result = Encoding.ASCII.GetString(buffer);
-                List<string> commandArgs = result.Split(' ').ToList();
-
                 try
                 {
+                    byte[] buffer = new byte[receiveBuffer]; //aici dadea eroare
+                    binaryReader.Read(buffer);
+                    buffer = Utils.TrimBytes(buffer);
+                    string result = Encoding.ASCII.GetString(buffer);
+                    List<string> commandArgs = Regex.Split(result,
+                        "(?<=^[^\"]*(?:\"[^\"]*\"[^\"]*)*) (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)").ToList();
+                
+                    //initial try incepea de aici, dar putea sa dea aroare cand astepta primul stream
+
                     //momentan inutil pt ca primul socket nu citeste stream-ul
                     if (result == "connected")
                         SendMessage(binaryWriter, "Connection established.");
@@ -71,7 +75,7 @@ namespace Server
                     //remotereceivebuffer
                     else if(commandArgs[0] == "remoteReceiveBuffer")
                     {
-                        if (commandArgs.Count >= 2)
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
                         {
                             Int32.TryParse(commandArgs[1], out receiveBuffer);
                             SendMessage(binaryWriter, $"Server receive buffer size set to {receiveBuffer}.");
@@ -83,7 +87,7 @@ namespace Server
                     //remotesendbuffer
                     else if (commandArgs[0] == "remoteSendBuffer")
                     {
-                        if (commandArgs.Count >= 2)
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
                         {
                             Int32.TryParse(commandArgs[1], out sendBuffer);
                             SendMessage(binaryWriter, $"Server send buffer size set to {sendBuffer}.");
@@ -95,7 +99,7 @@ namespace Server
                     //remotesendtimeout
                     else if (commandArgs[0] == "remoteSendTimeout")
                     {
-                        if (commandArgs.Count >= 2)
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
                         {
                             Int32.TryParse(commandArgs[1], out sendTimeout);
                             SendMessage(binaryWriter, $"Server send timeout set to {sendTimeout}.");
@@ -109,9 +113,9 @@ namespace Server
                         byte[] fileBytes = new byte[receiveBuffer];
                         binaryReader.Read(fileBytes);
 
-                        File.WriteAllBytes(commandArgs[2], fileBytes);
+                        File.WriteAllBytes(commandArgs[2].Trim('"'), fileBytes);
 
-                        SendMessage(binaryWriter, $"Successfully received file {commandArgs[3]}.");
+                        SendMessage(binaryWriter, $"Successfully received file {commandArgs[2]}.");
                     }
 
                     //beep
@@ -129,8 +133,8 @@ namespace Server
                     //process
                     else if (commandArgs[0] == "process")
                     {
-                        int processPid = Commands.StartProcess(commandArgs[1], commandArgs.Skip(2).ToArray());
-                        SendMessage(binaryWriter, $"Successfully started process with PID {processPid}.");
+                        int processId = Commands.StartProcess(commandArgs[1], commandArgs.Skip(2).ToArray());
+                        SendMessage(binaryWriter, $"Successfully started process with PID {processId}.");
                     }
 
                     //cmd
@@ -167,17 +171,44 @@ namespace Server
                             $"into '{commandArgs[2]}' using password '{commandArgs[3]}'.");
                     }
 
-                    //openport ==== DE TERMINAT
+                    //openport
                     else if (commandArgs[0] == "openport")
                     {
-                        
+                        if (commandArgs.Count >= 4)
+                        {
+                            string description = String.Empty;
+                            if (commandArgs.Count >= 5)
+                                description = commandArgs[4].Trim('"');
+
+                            if (commandArgs[1] == "tcp")
+                            {
+                                Utils.OpenPort(Open.Nat.Protocol.Tcp, Int32.Parse(commandArgs[2]),
+                                    Int32.Parse(commandArgs[3]), description).Wait();
+
+                                SendMessage(binaryWriter, $"Successfully opened private port {commandArgs[2]} and " +
+                                    $"public port {commandArgs[3]} using protocol TCP.");
+                            }
+                            else if (commandArgs[1] == "udp")
+                            {
+                                Utils.OpenPort(Open.Nat.Protocol.Udp, Int32.Parse(commandArgs[2]),
+                                    Int32.Parse(commandArgs[3]), description).Wait();
+
+                                SendMessage(binaryWriter, $"Successfully opened private port {commandArgs[2]} and " +
+                                    $"public port {commandArgs[3]} using protocol UDP.");
+                            }
+                            else
+                                SendMessage(binaryWriter, $"Invalid protocol; valid protocols are TCP and UDP (lowercase).");
+                        }
+                        //in caz ca sunt prea putin argumente
+                        else
+                            throw new IndexOutOfRangeException();
                     }
 
                     //mouse
-                    else if (result.Split(' ')[0] == "mouse")
+                    else if (commandArgs[0] == "mouse")
                     {
-                        SetCursorPos(Int32.Parse(result.Split(' ')[1]), Int32.Parse(result.Split(' ')[2]));
-                        SendMessage(binaryWriter, "Command executed successfully.");
+                        SetCursorPos(Int32.Parse(commandArgs[1]), Int32.Parse(commandArgs[2]));
+                        SendMessage(binaryWriter, $"Successfully moved mouse to {commandArgs[1]}, {commandArgs[2]}.");
                     }
 
                     else

@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Client
 {
@@ -42,7 +43,8 @@ namespace Client
                 try
                 {
                     testSocket.Connect(hostEndPoint);
-                    Console.WriteLine($"Connected to {host}:{port}");
+                    Console.WriteLine($"Connected to {host}:{port}.");
+                    //cam inutil send-ul asta
                     testSocket.Send(Encoding.ASCII.GetBytes("connected"));
                     testSocket.Shutdown(SocketShutdown.Both);
                     testSocket.Close();
@@ -61,72 +63,94 @@ namespace Client
 
             while (true) //cred ca pot sa pun true
             {
-                //sa bag astea in try
-                Console.Write(">>> ");
-                string message = Console.ReadLine();
-                List<string> commandArgs = message.Split(' ').ToList();
-
-                if (commandArgs[0] == "exit" || commandArgs[0] == "quit") Environment.Exit(0);
-
-                else if (commandArgs[0] == "help") PrintHelp();
-
-                #region BUFFERS
-                else if (commandArgs[0] == "localReceiveBuffer")
+                try
                 {
-                    if (commandArgs.Count >= 2)
+                    //sa bag astea in try
+                    Console.Write(">>> ");
+                    string message = Console.ReadLine();
+                    List<string> commandArgs = Regex.Split(message,
+                        "(?<=^[^\"]*(?:\"[^\"]*\"[^\"]*)*) (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)").ToList();
+
+                    if (commandArgs[0] == "exit" || commandArgs[0] == "quit") Environment.Exit(0);
+
+                    else if (commandArgs[0] == "help") PrintHelp();
+
+                    #region LOCAL COMMANDS
+                    else if (commandArgs[0] == "localReceiveBuffer")
                     {
-                        Int32.TryParse(commandArgs[1], out receiveBuffer);
-                        Console.WriteLine($"Local receive buffer size set to {receiveBuffer}.\n");
-                    }
-                    else
-                        Console.WriteLine($"Local receive buffer size is {receiveBuffer}.\n");
-                }
-
-                else if (commandArgs[0] == "localSendBuffer")
-                {
-                    if (commandArgs.Count >= 2)
-                    {
-                        Int32.TryParse(commandArgs[1], out sendBuffer);
-                        Console.WriteLine($"Local send buffer size set to {sendBuffer}.\n");
-                    }
-                    else
-                        Console.WriteLine($"Local send buffer size is {sendBuffer}.\n");
-                }
-
-                else if (commandArgs[0] == "localReceiveTimeout")
-                {
-                    if (commandArgs.Count >= 2)
-                    {
-                        Int32.TryParse(commandArgs[1], out receiveTimeout);
-                        Console.WriteLine($"Local receive timeout set to {receiveTimeout}.\n");
-                    }
-                    else
-                        Console.WriteLine($"Local receive timeout is {receiveTimeout}.\n");
-                }
-                #endregion
-
-                else if (!String.IsNullOrWhiteSpace(message))
-                {
-                    Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    socket.ReceiveBufferSize = receiveBuffer;
-                    socket.SendBufferSize = sendBuffer;
-                    socket.ReceiveTimeout = 30000;
-
-                    NetworkStream networkStream = new NetworkStream(socket);
-                    BinaryWriter binaryWriter = new BinaryWriter(networkStream);
-                    BinaryReader binaryReader = new BinaryReader(networkStream);
-
-                    socket.Connect(hostEndPoint);
-
-                    if (commandArgs[0] == "send")
-                    {
-                        if (File.Exists(commandArgs[1]))
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
                         {
-                            //ca sa stie server-ul ca trebuie sa mai astepte un flux
-                            SendMessage(binaryWriter, message);
+                            Int32.TryParse(commandArgs[1], out receiveBuffer);
+                            Console.WriteLine($"Local receive buffer size set to {receiveBuffer}.\n");
+                        }
+                        else
+                            Console.WriteLine($"Local receive buffer size is {receiveBuffer}.\n");
+                    }
 
-                            byte[] fileBytes = File.ReadAllBytes(commandArgs[1]);
-                            binaryWriter.Write(fileBytes);
+                    else if (commandArgs[0] == "localSendBuffer")
+                    {
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
+                        {
+                            Int32.TryParse(commandArgs[1], out sendBuffer);
+                            Console.WriteLine($"Local send buffer size set to {sendBuffer}.\n");
+                        }
+                        else
+                            Console.WriteLine($"Local send buffer size is {sendBuffer}.\n");
+                    }
+
+                    else if (commandArgs[0] == "localReceiveTimeout")
+                    {
+                        if (commandArgs.Count >= 2 && !String.IsNullOrWhiteSpace(commandArgs[1]))
+                        {
+                            Int32.TryParse(commandArgs[1], out receiveTimeout);
+                            Console.WriteLine($"Local receive timeout set to {receiveTimeout}.\n");
+                        }
+                        else
+                            Console.WriteLine($"Local receive timeout is {receiveTimeout}.\n");
+                    }
+                    #endregion
+
+                    else if (!String.IsNullOrWhiteSpace(message))
+                    {
+                        Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        socket.ReceiveBufferSize = receiveBuffer;
+                        socket.SendBufferSize = sendBuffer;
+                        socket.ReceiveTimeout = 30000;
+
+                        socket.Connect(hostEndPoint);
+
+                        NetworkStream networkStream = new NetworkStream(socket);
+                        BinaryWriter binaryWriter = new BinaryWriter(networkStream);
+                        BinaryReader binaryReader = new BinaryReader(networkStream);
+
+                        if (commandArgs[0] == "send")
+                        {
+                            if (File.Exists(Path.Combine(Directory.GetCurrentDirectory(), commandArgs[1].Trim('"'))) ||
+                                File.Exists(commandArgs[1].Trim('"')))
+                            {
+                                //ca sa stie server-ul ca trebuie sa mai astepte un flux
+                                SendMessage(binaryWriter, message);
+
+                                byte[] fileBytes = File.ReadAllBytes(commandArgs[1].Trim('"'));
+                                binaryWriter.Write(fileBytes);
+
+                                byte[] bytes = new byte[receiveBuffer];
+                                binaryReader.Read(bytes);
+                                bytes = bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
+                                string response = Encoding.ASCII.GetString(bytes);
+                                Console.WriteLine(response);
+                                Console.WriteLine();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid file name(s).");
+                                Console.WriteLine();
+                            }
+                        }
+
+                        else
+                        {
+                            SendMessage(binaryWriter, message);
 
                             byte[] bytes = new byte[receiveBuffer];
                             binaryReader.Read(bytes);
@@ -135,29 +159,18 @@ namespace Client
                             Console.WriteLine(response);
                             Console.WriteLine();
                         }
-                        else
-                        {
-                            Console.WriteLine("Invalid file name(s).");
-                        }
+
+                        networkStream.Close();
+                        binaryWriter.Close();
+                        binaryReader.Close();
+                        socket.Shutdown(SocketShutdown.Both);
+                        socket.Close();
                     }
-
-                    else
-                    {
-                        SendMessage(binaryWriter, message);
-
-                        byte[] bytes = new byte[receiveBuffer];
-                        binaryReader.Read(bytes);
-                        bytes = bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
-                        string response = Encoding.ASCII.GetString(bytes);
-                        Console.WriteLine(response);
-                        Console.WriteLine();
-                    }
-
-                    networkStream.Close();
-                    binaryWriter.Close();
-                    binaryReader.Close();
-                    socket.Shutdown(SocketShutdown.Both);
-                    socket.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"LOCAL ERROR: {e.Message}.");
+                    Console.WriteLine();
                 }
             }
         }
@@ -183,7 +196,7 @@ namespace Client
             Console.WriteLine("cmd [args] - executes a cmd command and returns the STDOUT");
             Console.WriteLine("encrypt fileToEncrypt outputFile password - encrypts a file");
             Console.WriteLine("decrypt fileToDecrypt outputFile password - decrypts a file");
-            Console.WriteLine("openport protocol privatePort publicPort description - forwards a port to the targeted device");
+            Console.WriteLine("openport protocol privatePort publicPort description - forwards a port");
             Console.WriteLine("mouse xPos yPos - moves the mouse to the specified coordinates");
             Console.WriteLine("exit - exits the tool");
             Console.WriteLine("quit - exits the tool");

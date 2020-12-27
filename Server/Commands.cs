@@ -127,12 +127,5 @@ namespace Server
                 throw ex;
             }
         }
-
-        public static async Task OpenPort(Protocol protocol, int privatePort, int publicPort, string description)
-        {
-            NatDiscoverer discoverer = new NatDiscoverer();
-            NatDevice device = await discoverer.DiscoverDeviceAsync();
-            await device.CreatePortMapAsync(new Mapping(protocol, privatePort, publicPort, description));
-        }
     }
 }
