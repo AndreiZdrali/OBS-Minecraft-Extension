@@ -1,0 +1,12 @@
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.exe
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.deps.json
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.runtimeconfig.json
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.runtimeconfig.dev.json
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.dll
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\win-x86\Installer.pdb
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.AssemblyInfoInputs.cache
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.AssemblyInfo.cs
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.csproj.CoreCompileInputs.cache
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.dll
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.pdb
+D:\C#\RemoteControlTool\Installer\obj\Release\netcoreapp3.1\win-x86\Installer.genruntimeconfig.cache

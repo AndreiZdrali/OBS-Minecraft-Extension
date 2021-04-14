@@ -1,0 +1,2 @@
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\publish\Server.pdb
+D:\C#\RemoteControlTool\Server\bin\Release\netcoreapp3.1\publish\Server.exe

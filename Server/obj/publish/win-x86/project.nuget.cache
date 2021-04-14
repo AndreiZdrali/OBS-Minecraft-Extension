@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "sCjObZEx42/x0jW74SMUoi/txb5RxBl1LQmYlegQeEqh5zgQ1VWzsS3gXSMGwn5taY+qs4M3soQ5+M1oKZxbIA==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\RemoteControlTool\\Server\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Andrei\\.nuget\\packages\\open.nat\\2.1.0\\open.nat.2.1.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Open.NAT 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Open.NAT",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

@@ -17,6 +17,8 @@ namespace Client
         static int sendBuffer = 8192;
         static int receiveTimeout = 30000;
         static int sendTimeout = 30000;
+        static StreamWriter outputWriter; //log-uri
+        static string outputFile = $"LOG_{DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")}.txt"; //log-uri
 
         static void Main(string[] args)
         {
@@ -169,6 +171,12 @@ namespace Client
                             binaryReader.Read(bytes);
                             bytes = bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
                             string response = Encoding.ASCII.GetString(bytes);
+
+                            StreamWriter outputWriter = new StreamWriter(outputFile, true);
+                            outputWriter.WriteLine($"======== {DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")} ========");
+                            outputWriter.WriteLine($"{response}\n");
+                            outputWriter.Close();
+
                             Console.WriteLine(response);
                             Console.WriteLine();
                         }

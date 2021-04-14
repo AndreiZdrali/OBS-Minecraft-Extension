@@ -1,0 +1,14 @@
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.exe
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.deps.json
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.runtimeconfig.json
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.runtimeconfig.dev.json
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.dll
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Test.pdb
+D:\C#\RemoteControlTool\Test\bin\Release\netcoreapp3.1\win-x86\Open.Nat.dll
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.AssemblyInfoInputs.cache
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.AssemblyInfo.cs
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.csproj.CoreCompileInputs.cache
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.csproj.CopyComplete
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.dll
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.pdb
+D:\C#\RemoteControlTool\Test\obj\Release\netcoreapp3.1\win-x86\Test.genruntimeconfig.cache

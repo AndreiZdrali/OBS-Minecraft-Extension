@@ -1,0 +1,5 @@
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\publish\Installer.exe
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\publish\Installer.dll
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\publish\Installer.deps.json
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\publish\Installer.runtimeconfig.json
+D:\C#\RemoteControlTool\Installer\bin\Release\netcoreapp3.1\publish\Installer.pdb

