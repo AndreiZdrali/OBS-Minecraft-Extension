@@ -8,7 +8,6 @@ namespace Installer
 {
     class Installer
     {
-        static string ip;
         static string game = "OBS Minecraft";
 
         static void Main(string[] args)

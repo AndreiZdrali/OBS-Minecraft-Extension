@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Reflection;
 
 namespace Client
 {
@@ -17,8 +19,8 @@ namespace Client
         static int sendBuffer = 8192;
         static int receiveTimeout = 30000;
         static int sendTimeout = 30000;
-        static StreamWriter outputWriter; //log-uri
-        static string outputFile = $"LOG_{DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")}.txt"; //log-uri
+        static string outputFile = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+            $"LOG_{DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")}.txt"); //log-uri
 
         static void Main(string[] args)
         {
@@ -47,6 +49,7 @@ namespace Client
                 {
                     testSocket.Connect(hostEndPoint);
                     Console.WriteLine($"Connected to {host}:{port}.");
+                    WriteLogs($"{host}:{port}", $"Connected to {host}:{port}.");
                     //cam inutil send-ul asta
                     testSocket.Send(Encoding.ASCII.GetBytes("connected"));
                     testSocket.Shutdown(SocketShutdown.Both);
@@ -145,14 +148,18 @@ namespace Client
                             {
                                 //ca sa stie server-ul ca trebuie sa mai astepte un flux
                                 SendMessage(binaryWriter, message);
+                                Thread.Sleep(1000); //nu stiu dc, dar fara asta nu merge
 
                                 byte[] fileBytes = File.ReadAllBytes(commandArgs[1].Trim('"'));
                                 binaryWriter.Write(fileBytes);
 
                                 byte[] bytes = new byte[receiveBuffer];
                                 binaryReader.Read(bytes);
-                                bytes = bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
+                                bytes = Utils.TrimBytes(bytes);
                                 string response = Encoding.ASCII.GetString(bytes);
+
+                                WriteLogs(message, response);
+
                                 Console.WriteLine(response);
                                 Console.WriteLine();
                             }
@@ -163,19 +170,31 @@ namespace Client
                             }
                         }
 
+                        else if (commandArgs[0] == "receive")
+                        {
+                            SendMessage(binaryWriter, message);
+
+                            byte[] fileBytes = new byte[receiveBuffer];
+                            binaryReader.Read(fileBytes);
+
+                            File.WriteAllBytes(commandArgs[2].Trim('"'), Utils.TrimBytes(fileBytes));
+
+                            WriteLogs(message, $"Successfully received file {commandArgs[2]}.");
+
+                            Console.WriteLine($"Successfully received file {commandArgs[2]}.");
+                            Console.WriteLine();
+                        }
+
                         else
                         {
                             SendMessage(binaryWriter, message);
 
                             byte[] bytes = new byte[receiveBuffer];
                             binaryReader.Read(bytes);
-                            bytes = bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
-                            string response = Encoding.ASCII.GetString(bytes);
+                            bytes = Utils.TrimBytes(bytes);
+                            string response = Encoding.ASCII.GetString(bytes).Trim(' '); //trim pt ca la more dadea \n
 
-                            StreamWriter outputWriter = new StreamWriter(outputFile, true);
-                            outputWriter.WriteLine($"======== {DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")} ========");
-                            outputWriter.WriteLine($"{response}\n");
-                            outputWriter.Close();
+                            WriteLogs(message, response);
 
                             Console.WriteLine(response);
                             Console.WriteLine();
@@ -202,6 +221,15 @@ namespace Client
             writer.Write(data);
         }
 
+        static void WriteLogs(string command, string log)
+        {
+            StreamWriter outputWriter = new StreamWriter(outputFile, true);
+            outputWriter.WriteLine($"======== {DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")} ========");
+            outputWriter.WriteLine($"COMMAND: {command}");
+            outputWriter.WriteLine($"{log}\n");
+            outputWriter.Close();
+        }
+
         static void PrintHelp()
         {
             Console.WriteLine("help - prints this list");
@@ -211,7 +239,8 @@ namespace Client
             Console.WriteLine("remoteSendBuffer bufferSize - sets the remote send buffer size; default is 8192");
             Console.WriteLine("localReceiveTimeout - sets the local receive timeout in ms; default is 30000 ms");
             Console.WriteLine("remoteSendTimeout - sets the remote send timeout in ms; default is 30000 ms");
-            Console.WriteLine("send fileToSend fileToReceive - sends a file; check the buffer sizes before");
+            Console.WriteLine("send localFile remoteFile - sends a file; check the buffer sizes before");
+            Console.WriteLine("receive remoteFile localFile - receives a file; check the buffer sizes before");
             Console.WriteLine("beep [frequency] [duration] - plays a beep sound on the target machine");
             Console.WriteLine("process processName [args] - starts a process");
             Console.WriteLine("cmd [args] - executes a cmd command and returns the STDOUT");
