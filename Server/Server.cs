@@ -187,7 +187,7 @@ namespace Server
                     {
                         //ca sa aiba 8 biti
                         string actualPassword = Utils.GetMD5(commandArgs[3]).Substring(0, 8);
-                        Commands.EncryptFile(commandArgs[1], commandArgs[2], actualPassword);
+                        Commands.EncryptFile(commandArgs[1].Trim('"'), commandArgs[2].Trim('"'), actualPassword);
                         File.Delete(commandArgs[1]);
                     }
                     SendMessage(binaryWriter, $"Successfully encrypted file '{commandArgs[1]}'" +
@@ -200,7 +200,7 @@ namespace Server
                     {
                         //ca sa aiba 8 biti
                         string actualPassword = Utils.GetMD5(commandArgs[3]).Substring(0, 8);
-                        Commands.EncryptFile(commandArgs[1], commandArgs[2], actualPassword);
+                        Commands.DecryptFile(commandArgs[1].Trim('"'), commandArgs[2].Trim('"'), actualPassword);
                         File.Delete(commandArgs[1]);
                     }
                     SendMessage(binaryWriter, $"Successfully decrypted file '{commandArgs[1]}'" +

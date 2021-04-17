@@ -1,0 +1,1 @@
+X=MsgBox("Encryption progress 87% - 12732 files encrypted",1+16,"SystemDumps.dll")

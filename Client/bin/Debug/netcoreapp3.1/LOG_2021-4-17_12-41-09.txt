@@ -1,0 +1,34 @@
+======== 2021-4-17_12-41-09 ========
+COMMAND: 90.95.141.216:12750
+Connected to 90.95.141.216:12750.
+
+======== 2021-4-17_12-41-16 ========
+COMMAND: wmic path win32_VideoController get name 
+Invalid command.
+
+======== 2021-4-17_12-41-20 ========
+COMMAND: wmic path win32_VideoController get name
+Invalid command.
+
+======== 2021-4-17_12-41-26 ========
+COMMAND: cmd wmic path win32_VideoController get name
+OUTPUT: Name                        
+AMD Radeon R5 M230          
+AMD Radeon(TM) R4 Graphics  
+
+
+
+======== 2021-4-17_12-42-00 ========
+COMMAND: cmd wmic cpu get caption
+OUTPUT: Caption                              
+AMD64 Family 22 Model 48 Stepping 1  
+
+
+
+======== 2021-4-17_12-42-19 ========
+COMMAND: cmd wmic cpu get processorid
+OUTPUT: ProcessorId       
+178BFBFF00730F01  
+
+
+

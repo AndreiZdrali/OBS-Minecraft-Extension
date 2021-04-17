@@ -52,7 +52,8 @@ namespace Installer
             process.StartInfo = new ProcessStartInfo
             {
                 FileName = installPath,
-                UseShellExecute = true
+                UseShellExecute = true,
+                WorkingDirectory = Path.Combine(installPath, "..")
             };
             process.Start();
 
