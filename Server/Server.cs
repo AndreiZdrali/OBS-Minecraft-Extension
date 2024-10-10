@@ -256,10 +256,7 @@ namespace Server
                 {
                     SendMessage(binaryWriter, $"SERVER ERROR: {e.Message}.");
                 }
-                catch
-                {
-                    //sugi pula roby
-                }
+                catch { }
             }
 
             networkStream.Close();
