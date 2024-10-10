@@ -1,4 +1,4 @@
-# C# RAT (Remote Access Trojan)
+# C# Remote Access Trojan
 
 ## Overview
 
